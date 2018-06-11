@@ -1,0 +1,14 @@
+{% extends 'demo/base.html' %}
+
+{% load bootstrap3 %}
+
+{% block bootstrap3_content %}
+{% block content %}
+<a href="{% url 'findsth_search' %}">
+	<div class="jumbotron text-center">
+	  <center><h1><img class="img-responsive" src="/static/img/findsth_big.PNG" alt="찾아줘" width="400" height="200"></h1></center>
+	  <p>당신이 원한는 것을 가장 싸고 가까운곳으로 안내합니다.</p> 
+	</div>
+</a>
+{% endblock %}
+{% endblock %}

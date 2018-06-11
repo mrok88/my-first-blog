@@ -1,0 +1,64 @@
+{% extends 'demo/base.html' %}
+
+{% load bootstrap3 %}
+{% load static %}
+{% block bootstrap3_content %}
+{% block content %}
+
+<div class="container">
+<div class="row">
+<div class="col-xs-6">
+  <h2><img class="img-responsive" src="/static/img/findsth.PNG" alt="찾아줘" width="200" height="100"></h2> 
+  <form class="form-inline"  action="{% url 'findsth_search' %}">
+    <div class="form-group">
+      <label for="schKwd">검색어:</label>
+      <input type="text" class="form-control" id="schKwd" placeholder="검색어" name="schKwd" value="{{ gets.schKwd }}">
+    </div>
+    <button type="submit" class="btn btn-lg"><span class="glyphicon glyphicon-search"></span></button>
+	<a href="#" onClick="javascript:window.location.href  = '{% url 'findsth_home' %}'" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-home"></span> Home
+    </a>
+  </form>
+ <br>
+ {% if gets.schKwd  %}
+ <table class="table table-bordered" style="margin:0% 50% 5% 5%">
+    <thead>
+      <tr >	  
+        <th class="col-lg-2" >거리</th>
+        <th class="col-lg-2" >시간</th>
+        <th class="col-lg-2" >업체</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>100M</td>
+        <td>24H</td>
+        <td><a href="fmap/cu" > <img class="img-responsive" src="/static/img/cu.PNG" alt="CU" width="100" height="50"> </a></td>
+      </tr>
+      <tr>
+        <td>700M</td>
+        <td>24H</td>
+        <td><a href="fmap/711" ><img class="img-responsive" src="/static/img/711.PNG" alt="SevenEleven" width="100" height="50"> </a></td>
+      </tr>
+      <tr>
+        <td>1.2Km</td>
+        <td style="color:red">Closed</td>
+        <td><a href="fmap/emart" ><img class="img-responsive" src="/static/img/emart.PNG" alt="eMart" width="100" height="50"> </a></td>
+      </tr>
+      <tr>
+        <td>5.2Km</td>
+        <td style="color:red">Closed</td>
+        <td><a href="fmap/lottemart" > <img class="img-responsive" src="/static/img/lottemart.PNG" alt="lotteMart" width="100" height="50"></a></td>
+      </tr>	  
+    </tbody>
+  </table>
+{% endif %}  
+</div>
+<div class="col-xs-6">
+<p></p>
+</div>
+</div>  
+</div>
+
+{% endblock %}
+{% endblock %}
